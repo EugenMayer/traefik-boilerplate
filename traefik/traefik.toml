@@ -6,12 +6,17 @@ defaultEntryPoints = ["http"]
     address = ":80"
 
 [file]
+  # https://docs.traefik.io/configuration/backends/file/#multiple-separated-files
   directory = "/etc/traefik/endpoints/"
   watch = true
 
 [api]
 
 [ping]
+
+# Enable ACME (Let's Encrypt): automatic SSL.
+[acme]
+# https://docs.traefik.io/configuration/acme/
 
 #[consul]
 #  # Consul server endpoint.

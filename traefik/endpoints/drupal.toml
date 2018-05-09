@@ -1,3 +1,4 @@
+# https://docs.traefik.io/configuration/backends/file/#reference
 [backends]
   [backends.drupal]
     [backends.drupal.servers.server1]
