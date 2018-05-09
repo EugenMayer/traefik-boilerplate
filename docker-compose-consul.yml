@@ -1,9 +1,6 @@
 version: "2"
 
 services:
-  traefik:
-    depends_on:
-      - consul
   consul:
     image: consul
     command: agent

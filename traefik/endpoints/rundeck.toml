@@ -1,10 +1,14 @@
 [backends]
   [backends.rundeck]
     [backends.rundeck.servers.server1]
-      url = "http://nginx:80"
+      url = "http://rundeck:4440"
+    [backends.rundeck.healthCheck]
+      path = "/api/1/system/info"
+      port = 4440
+      interval = "5s"
 
 [frontends]
   [frontends.rundeck]
     backend = "rundeck"
     [frontends.rundeck.routes.test_1]
-    rule = "Host:rundeck.lan"
+      rule = "Host:rundeck.lan"

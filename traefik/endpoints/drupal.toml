@@ -1,4 +1,15 @@
 [backends]
   [backends.drupal]
     [backends.drupal.servers.server1]
-      url = "http://drupal:8500"
+      url = "http://drupal1:80"
+    [backends.drupal.servers.server2]
+      url = "http://drupal2:80"
+    [backends.drupal.healthCheck]
+      path = "/"
+      port = 80
+      interval = "30s"
+[frontends]
+  [frontends.drupal]
+    backend = "drupal"
+    [frontends.drupal.routes.test_1]
+      rule = "Host:drupal.lan"

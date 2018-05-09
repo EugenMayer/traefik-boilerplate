@@ -3,15 +3,13 @@ version: "2"
 services:
   traefik:
     image: traefik
-    command: --api --ping --file
     ports:
-        - 80:80
-        - 443:443
-        - 8080:8080
+      - 80:80
+      - 443:443
+      - 8080:8080
     volumes:
       - ./traefik/traefik.toml:/etc/traefik/traefik.toml
       - ./traefik/endpoints/:/etc/traefik/endpoints
-
 volumes:
   consul-server-data:
     driver: local
