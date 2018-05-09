@@ -1,0 +1,12 @@
+[backends]
+  [backends.consul]
+    [backends.consul.servers.server1]
+      url = "http://consul:8500"
+    [backends.consul.servers.server2]
+      url = "http://consul2:8500"
+
+[frontends]
+  [frontends.consul]
+    backend = "consul"
+    [frontends.consul.routes.test_1]
+    rule = "Host:consul.lan"

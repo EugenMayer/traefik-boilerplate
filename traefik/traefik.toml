@@ -1,0 +1,22 @@
+#defaultEntryPoints = ["http", "https"]
+defaultEntryPoints = ["http"]
+
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+
+[file]
+  directory = "/etc/traefik/endpoints/"
+  watch = true
+
+[api]
+
+[ping]
+
+#[consul]
+#  # Consul server endpoint.
+#  endpoint = "consul:8500"
+#  # Enable watch Consul changes.
+#  watch = true
+#  # Prefix used for KV store.
+#  prefix = "traefik"

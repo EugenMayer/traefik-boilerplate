@@ -1,0 +1,10 @@
+[backends]
+  [backends.rundeck]
+    [backends.rundeck.servers.server1]
+      url = "http://nginx:80"
+
+[frontends]
+  [frontends.rundeck]
+    backend = "rundeck"
+    [frontends.rundeck.routes.test_1]
+    rule = "Host:rundeck.lan"

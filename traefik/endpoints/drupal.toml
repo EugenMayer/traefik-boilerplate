@@ -1,0 +1,4 @@
+[backends]
+  [backends.drupal]
+    [backends.drupal.servers.server1]
+      url = "http://drupal:8500"
