@@ -1,6 +1,10 @@
 #defaultEntryPoints = ["http", "https"]
 defaultEntryPoints = ["http"]
 
+
+# important if we use self-signed certificates on the backends
+InsecureSkipVerify = true
+
 [entryPoints]
   [entryPoints.http]
     address = ":80"
