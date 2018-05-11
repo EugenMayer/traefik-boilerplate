@@ -11,5 +11,7 @@
 [frontends]
   [frontends.rundeck]
     backend = "rundeck"
+    # that sets our X-Forward-Host headers
+    passHostHeader=true        
     [frontends.rundeck.routes.test_1]
       rule = "Host:rundeck.lan"
