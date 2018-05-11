@@ -12,5 +12,7 @@
 [frontends]
   [frontends.drupal]
     backend = "drupal"
+    # that sets our X-Forward-Host headers
+    passHostHeader=true    
     [frontends.drupal.routes.test_1]
       rule = "Host:drupal.lan"
