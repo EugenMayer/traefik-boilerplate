@@ -1,10 +1,24 @@
 #defaultEntryPoints = ["http", "https"]
 defaultEntryPoints = ["http"]
 
+
+# important if we use self-signed certificates on the backends
+InsecureSkipVerify = true
+
 [entryPoints]
   [entryPoints.http]
     address = ":80"
+  [entryPoints.https]
+    address = ":443"
+    
+[traefikLog]
+  filePath = "/var/log/traefik.log"
+  format   = "common"
 
+[accessLog]
+  filePath = "/var/log/traefik.access.log"
+  format = "common"
+  
 [file]
   # https://docs.traefik.io/configuration/backends/file/#multiple-separated-files
   directory = "/etc/traefik/endpoints/"
