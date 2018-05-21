@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  traefik:
+    #  since we set --docker.exposedByDefault=false the services are not added by default 
+    # but need the label traefik.enable=true
+    command: -c /dev/null --api --docker --entrypoints="Name:http Address::80" --docker.exposedByDefault=false --docker.domain=docker.localhost --logLevel=DEBUG
+    ports:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  example: 
+    image: emilevauge/whoami
+    labels:
+      # this will inform traefik to add a frontend for example.lan
+      # and map it to us as backend, on port 80
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:drupal.loan"
+      - "traefik.enable=true"
+  example-implicit: 
+    image: emilevauge/whoami
+    labels:
+      # this time we do not define the port, traefik will auto-detect this
+      # since the Dockerfile exposes 80 https://github.com/emilevauge/whoamI/blob/master/Dockerfile#L5
+      - "traefik.frontend.rule=Host:example-implicit.loan"
+      - "traefik.enable=true"
