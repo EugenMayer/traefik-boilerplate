@@ -11,10 +11,7 @@ services:
     volumes:
       - ./traefik/traefik.toml:/etc/traefik/traefik.toml
       - ./traefik/endpoints/:/etc/traefik/endpoints
-volumes:
-  consul-server-data:
-    driver: local
   drupal1:
-    image: nginx
+    image: 'emilevauge/whoami'
   drupal2:
-    image: nginx
+    image: 'emilevauge/whoami'
