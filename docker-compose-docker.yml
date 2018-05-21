@@ -19,6 +19,9 @@ services:
       - "traefik.port=80"
       - "traefik.frontend.rule=Host:example.lan"
       - "traefik.enable=true"
+      # this would enable https on that endpoint - you would need to set the TLS configuration on the 
+      # endpoints.https.tls or configure ACME
+#      - "traefik.protocol=https" 
   example-implicit: 
     image: emilevauge/whoami
     labels:
