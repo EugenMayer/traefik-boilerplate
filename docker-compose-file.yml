@@ -1,3 +1,4 @@
+#file based configuration
 version: "2"
 
 services:
@@ -13,3 +14,7 @@ services:
 volumes:
   consul-server-data:
     driver: local
+  drupal1:
+    image: nginx
+  drupal2:
+    image: nginx

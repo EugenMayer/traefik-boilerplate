@@ -10,7 +10,20 @@ services:
       - ./consul/server.json:/consul/config/server_config.json
       - consul-server-data:/consul/data:rw
     ports:
-      - "8500:8500"
+      - "8500:8500" # consul UI, use this to configure then endpoints
+  traefik:
+    image: traefik
+    depends_on:
+      - consul
+    #  since we set --docker.exposedByDefault=false the services are not added by default
+    # but need the label traefik.enable=true
+    command: -c /dev/null --api --consul --entrypoints="Name:http Address::80" --consul.endpoint="consul:8500" --logLevel=DEBUG
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   consul-server-data:
