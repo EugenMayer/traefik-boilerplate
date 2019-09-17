@@ -1,6 +1,4 @@
-## WAT
-
-Different example traefik configurations for different scenarios for you to start with. 
+** This repository has been discontinued, please use https://github.com/EugenMayer/docker-image-traefik as a boilerplate **
 
 # Common
 
